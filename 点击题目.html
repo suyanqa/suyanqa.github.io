@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>点名按钮</title>
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: rgb(255, 192, 203);
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      background-color: rgb(255, 192, 203);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      text-align: center;
+      color: rgb(255, 192, 203);
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    #names {
+      margin: 20px auto;
+      width: 200px;
+      height: 200px;
+      overflow: auto;
+      border: 1px solid rgb(255, 192, 203);
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    #names p {
+      cursor: pointer;
+    }
+
+    #names p.highlight {
+      background-color: rgb(255, 192, 203);
+      color: #fff;
+    }
+  </style>
+  <script>
+    function getRandomName() {
+      const names = ["张三", "李四", "王五", "赵六", "陈七"];
+      let random = Math.floor(Math.random() * names.length);
+      let randomName = names[random];
+      let resultElement = document.getElementById("result");
+      let namesElement = document.getElementById("names");
+
+      // 高亮选中的名字
+      let name_list = namesElement.getElementsByTagName("p");
+      for (let i = 0; i < name_list.length; i++) {
+        name_list[i].classList.remove("highlight");
+      }
+      name_list[random].classList.add("highlight");
+
+      // 滚动到选中的名字
+      let select_name = name_list[random];
+      namesElement.scrollTop = select_name.offsetTop;
+
+      // 显示随机选取的名字
+      resultElement.textContent = randomName;
+    }
+  </script>
+</head>
+<body>
+  <h1>点名按钮</h1>
+  <button onclick="getRandomName()">点名</button>
+  <div id="names">
+    <p>张三</p>
+    <p>李四</p>
+    <p>王五</p>
+    <p>赵六</p>
+    <p>陈七</p>
+  </div>
+  <p id="result"></p>
+</body>
+</html>
