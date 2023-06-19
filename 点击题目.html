@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CSV文件读取和随机抽取</title>
+  <title>面试题抽取</title>
   <style>
     body {
       text-align: center;
-      color: pink;
+      background-color: pink;
+      color: #f8f8f8;
     }
   
     table {
@@ -15,21 +16,21 @@
   
     th, td {
       padding: 10px;
-      border: 1px solid pink;
+      border: 1px solid #f8f8f8;
     }
   
     .custom-button {
       padding: 10px 20px;
-      background-color: pink;
+      background-color: #f8f8f8;
       border: none;
-      color: white;
+      color: pink;
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
     }
   
     .custom-button:hover {
-      background-color: hotpink;
+      background-color: #f2f2f2;
     }
   
     .custom-button:focus {
@@ -37,7 +38,7 @@
     }
   
     .custom-button:active {
-      background-color: deeppink;
+      background-color: #ccc;
     }
   
     #result-container {
@@ -48,8 +49,10 @@
   
     #result {
       font-size: 40px;
+      font-weight: bold;
     }
   </style>
+  
   
 </head>
 <body>
@@ -67,9 +70,11 @@
   <button class="custom-button" onclick="randomExtraction()">随机抽取</button>
 
   <!-- 结果显示区域 -->
+<!-- 结果显示区域 -->
   <div id="result-container" style="display: none;">
-    <p id="result"></p>
+    <p id="result" style="font-weight: bold;"></p>
   </div>
+
 
   <script>
     // 存储读取的CSV数据
